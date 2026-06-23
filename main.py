@@ -3,4 +3,5 @@ from src.menu import Menu
 from src.money_handler import MoneyHandler
 from src.coffee_machine import CoffeeMachine
 
-CoffeeMachine(resources, Menu(MENU), MoneyHandler()).run()
+if __name__ == "__main__":
+    CoffeeMachine(resources, Menu(MENU), MoneyHandler()).run()

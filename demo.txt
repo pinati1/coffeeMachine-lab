@@ -1,0 +1,21 @@
+What would you like? (espresso/latte/cappuccino): espresso
+Please insert coins.
+How many quarters? 7
+How many dimes? 0
+How many nickels? 0
+How many pennies? 0
+Here is $0.25 in change.
+Here is your espresso. Enjoy!
+What would you like? (espresso/latte/cappuccino): report
+Water: 250ml
+Milk: 200ml
+Coffee: 82g
+Money: $1.5
+What would you like? (espresso/latte/cappuccino): latte
+Please insert coins.
+How many quarters? 1
+How many dimes? 0
+How many nickels? 0
+How many pennies? 0
+Sorry that's not enough money. Money refunded.
+What would you like? (espresso/latte/cappuccino): off

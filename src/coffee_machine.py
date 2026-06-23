@@ -3,8 +3,6 @@ from src.money_handler import MoneyHandler
 
 
 class CoffeeMachine:
-    """Manages machine resources, profit, and the main serving loop."""
-
     def __init__(self, resources: dict, menu: Menu, handler: MoneyHandler):
         self.resources = dict(resources)
         self.money = 0.0
@@ -12,14 +10,12 @@ class CoffeeMachine:
         self.handler = handler
 
     def report(self) -> None:
-        """Print the current resource levels and total profit."""
         print(f"Water: {self.resources['water']}ml")
         print(f"Milk: {self.resources['milk']}ml")
         print(f"Coffee: {self.resources['coffee']}g")
         print(f"Money: ${self.money}")
 
     def check_resources(self, drink: MenuItem) -> bool:
-        """Return True if the machine has enough ingredients for the drink."""
         for ingredient, amount in drink.ingredients.items():
             if self.resources.get(ingredient, 0) < amount:
                 print(f"Sorry there is not enough {ingredient}.")
@@ -27,17 +23,16 @@ class CoffeeMachine:
         return True
 
     def make_coffee(self, drink: MenuItem) -> None:
-        """Deduct ingredients, record profit, and serve the drink."""
         for ingredient, amount in drink.ingredients.items():
             self.resources[ingredient] -= amount
+        # profit is the drink price, not the amount inserted — change is excluded
         self.money += drink.cost
         print(f"Here is your {drink.name}. Enjoy!")
 
     def run(self) -> None:
-        """Main serving loop — runs until the user types 'off'."""
-        self.menu.display_menu()
+        prompt = "What would you like? (espresso/latte/cappuccino): "
         while True:
-            choice = input("What would you like? (espresso/latte/cappuccino): ").strip().lower()
+            choice = input(prompt).strip().lower()
 
             if choice == "off":
                 break
